@@ -1,7 +1,9 @@
 
-<h1> {{profile}}</h1>
-<h2>Followers: {{  profile.get_num_followers  }}</h2>
+
+<h1> {{profile.user}}</h1>
+<h2>Followers: {{ profile.get_num_followers }}</h2>
 {% for question in questions %}
 	{{question.text|linebreaksbr}}
+	
 	<br>
 {% endfor %}

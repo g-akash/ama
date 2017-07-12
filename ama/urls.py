@@ -19,6 +19,5 @@ from django.contrib.auth import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^profile/',include('Profile.urls')),
-    url(r'^question/',include('Question.urls')),
+    url(r'',include('forum.urls')),
 ]

@@ -17,9 +17,9 @@ class Answer(models.Model):
 	def __str__(self):
 		return str(self.text)
 
-	def get_num_upvotes(self):
-		num_upvotes = A_upvote.objects.filter(answer=self).count()
-		return num_upvotes
+	# def get_num_upvotes(self):
+	# 	num_upvotes = A_upvote.objects.filter(answer=self).count()
+	# 	return num_upvotes
 
 	class Meta:
 		unique_together = (("author","question"),)

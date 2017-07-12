@@ -10,7 +10,7 @@ from Profile.models import Profile, P_follow
 
 def question(request,pkey):
 	question = get_object_or_404(Question,pk=pkey)
-	answers = Answer.objects.filter(question=question).order_by('created_date')
+	answers = Answer.objects.filter(question=question).order_by('-created_date')
 	num_followers = Q_follow.objects.filter(question=question).count()
 	return render(request,'Question/question.html',{'question':question,'answers':answers})
 
