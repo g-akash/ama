@@ -16,19 +16,19 @@ class Profile(models.Model):
 	user = models.ForeignKey('auth.User')
 
 	def get_num_followers(self):
-		num_followers = P_follow.objects.filter(followee=self.user).count()
+		num_followers = P_follow.objects.filter(followee=self).count()
 		return num_followers
 
 	def get_followers(self):
-		followers = P_follow.objects.filter(followee=self.user)
+		followers = P_follow.objects.filter(followee=self)
 		return followers
 
 	def get_num_followees(self):
-		num_followees = P_follow.objects.filter(follower=self.user).count()
+		num_followees = P_follow.objects.filter(follower=self).count()
 		return num_followees
 
 	def get_followees(self):
-		followees = P_followees.objects.filter(follower=self.user)
+		followees = P_followees.objects.filter(follower=self)
 		return followees
 
 	def get_num_questions(self):
@@ -60,8 +60,8 @@ class Profile(models.Model):
 
 
 class P_follow(models.Model):
-	follower = models.ForeignKey('auth.User',related_name='follower')
-	followee = models.ForeignKey('auth.User',related_name='followee')
+	follower = models.ForeignKey(Profile,related_name='follower')
+	followee = models.ForeignKey(Profile,related_name='followee')
 
 	def __str__(self):
 		return str(self.follower)+" -> "+str(self.followee)
