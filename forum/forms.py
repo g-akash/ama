@@ -2,8 +2,9 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
+from django.conf import settings
 
-from .models import Question, Answer, Comment
+from .models import Question, Answer, Comment, Ppic
 
 class SignupForm(UserCreationForm):
 	email = forms.EmailField(required=True)
@@ -57,5 +58,13 @@ class CommentForm(forms.ModelForm):
 		model = Comment
 		fields = ('text',)
 
+
+
+
+class PpicForm(forms.Form):
+	ppic = forms.ImageField()
+	class Meta:
+		model = Ppic
+		fields = ('ppic',)
 
 

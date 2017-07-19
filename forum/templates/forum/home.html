@@ -1,0 +1,8 @@
+<h1>Welcome to AMA</h1>
+
+{% for answer in answers %}
+<b>{{ answer.question|linebreaksbr }}</b>
+<br>
+{{ answer.text|linebreaksbr }}
+<hr>
+{% endfor %}

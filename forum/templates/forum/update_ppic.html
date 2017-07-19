@@ -1,0 +1,5 @@
+<h1> Upload a new profile picture here </h1>
+
+<form enctype="multipart/form-data" method="POST" class="post-form">{% csrf_token %} {{ form.as_p }}
+	<button type="submit" >submit</button>
+</form>

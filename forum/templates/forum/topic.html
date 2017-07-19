@@ -1,0 +1,6 @@
+<h1>{{topic.text}}</h1>
+{% for question in questions %}
+<b>{{question.text|linebreaksbr}}</b>
+<p>{{question.get_one_answer|linebreaksbr}}</p>
+<hr>
+{% endfor %}

@@ -2,7 +2,9 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns =[
-	url(r'^profile/(?P<pkey>\d+)/$',views.profile,name='profile'),
+	url(r'^$',views.home,name='home'),
+	url(r'^profile/$',views.profile,name='profile'),
+	url(r'^profile/(?P<pkey>\d+)/$',views.other_profile,name="other_profile"),
 	url(r'^question/(?P<pkey>\d+)/$',views.question,name='question'),
 	url(r'^answer/(?P<pkey>\d+)/$',views.answer,name='answer'),
 	url(r'^signup/$',views.signup,name='signup'),
@@ -24,4 +26,7 @@ urlpatterns =[
 	url(r'^question/follow/(?P<pkey>\d+)/$',views.follow_question,name="follow_question"),
 	url(r'^profile/editdetail/$',views.edit_detail,name="edit_detail"),
 	url(r'^profile/updatepassword/$',views.update_password,name="update_password"),
+	url(r'^profile/ppic/$',views.update_ppic,name="update_ppic"),
+	url(r'^topic/follow/(?P<pkey>\d+)/$',views.follow_topic,name="follow_topic"),
+	url(r'^topic/(?P<pkey>\d+)$',views.topic,name="topic"),
 ]
