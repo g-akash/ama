@@ -1,10 +1,36 @@
+{% extends 'forum/base.html' %}
 
 
+
+{% block content %}
+
+<div class="addspace">
+	&nbsp
+</div>
 <h1> {{profile.user}}</h1>
-
+<p>{{ img }}</p>
 <h2>Followers: {{ profile.get_num_followers }}</h2>
-{% for question in questions %}
-	{{question.text|linebreaksbr}}
+<center>
+	<div class="container">
+	{% for answer in answers %}
+		  
+		<div class="box" >
+		  <div class="media">
+		    <div class="media-left media-top">
+		     
+		    </div>
+		    <div class="media-body">
+				<div class="textalignleft">      
+			      <h4 class="media-heading">{{ answer.question|linebreaksbr }}</h4>
+			      <br>
+			      <p><b>{{answer.author}}</b></p>
+			      <p>{{answer.text|linebreaksbr}}</p>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+	{% endfor %}
+	</div>
+</center>
 
-	<br>
-{% endfor %}
+{% endblock %}

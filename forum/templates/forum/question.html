@@ -1,8 +1,34 @@
-<h1>{{question.text}}</h1>
-<h2>Followers: {{question.get_num_followers}}  Upvotes: {{question.get_num_upvotes}}</h2>
+{% extends 'forum/base.html' %}
 
-{% for answer in answers %}
-	<p> {{ answer.text }}</p>
-	<p>Upvotes: {{ answer.get_num_upvotes }}</p>
-	<hr>
-{% endfor %}
+
+{% block content %}
+<div class="spacer">
+	&nbsp
+</div>
+	
+<center>
+	
+	<div class="container">
+		<div>
+		<h2>{{ question.text }}</h2>
+	</div>
+	{% for answer in answers %}
+		  
+		<div class="box" >
+		  <div class="media">
+		    <div class="media-left media-top">
+		     
+		    </div>
+		    <div class="media-body">
+				<div class="textalignleft"> 
+			      <p><b>{{answer.author}}</b></p>
+			      <p>{{answer.text|linebreaksbr}}</p>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+	{% endfor %}
+	</div>
+</center>
+
+{% endblock %}

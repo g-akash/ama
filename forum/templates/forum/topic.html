@@ -1,6 +1,51 @@
-<h1>{{topic.text}}</h1>
+{% extends 'forum/base.html' %}
+
+{% block content %}
+
+<div class="spacer">
+	&nbsp
+</div>
+
+<center>
+	<h1>{{topic.text}}</h1>
+	<h3>Followers: {{topic.get_num_followers}}</h3>
+	<div class="container">
+		
+		{% for question in questions %}
+
+		<div class="box" >
+		  <div class="media">
+		    <div class="media-left media-top">
+		     
+		    </div>
+
+		    <div class="media-body">
+				<div class="textalignleft"> 
+					<h4 class="media-heading">{{ question.text|linebreaksbr }}</h4>
+			      <br>
+			      <!-- <p><b>{{answer.author}}</b></p> -->
+			      <p>{{question.get_one_answer|linebreaksbr}}</p>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+		{% endfor %}
+	</div>
+</center>
+
+
+
+
+
+
+
+
+
+<!-- <h1>{{topic.text}}</h1>
 {% for question in questions %}
 <b>{{question.text|linebreaksbr}}</b>
 <p>{{question.get_one_answer|linebreaksbr}}</p>
 <hr>
-{% endfor %}
+{% endfor %} -->
+
+{% endblock %}

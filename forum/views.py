@@ -112,8 +112,9 @@ def profile(request):
 	pkey = request.user.pk
 	profile = get_object_or_404(Profile, pk=pkey)
 	user = profile.user
-	questions = Question.objects.filter(author=user).order_by('created_date')
-	return render(request,'forum/profile.html',{'questions':questions,'profile':profile})
+	answers = Answer.objects.filter(author=user).order_by('created_date')
+	image = "/Users/akash/AMA/ama/pictures/"+str(user)+".jpg"
+	return render(request,'forum/profile.html',{'answers':answers,'profile':profile,'img':image})
 
 
 
@@ -122,8 +123,8 @@ def topic(request,pkey):
 	topic = get_object_or_404(Topic,pk=pkey)
 	questions = topic.get_questions()
 	answers = []
-	for question in questions:
-		answers.append(question.get_one_answer())
+	# for question in questions:
+	# 	answers.append(question.get_one_answer())
 
 	return render(request,'forum/topic.html',{'topic':topic,'questions':questions,'answers':answers})
 
@@ -452,4 +453,5 @@ def login(request):
 def logout(request):
 	Logout(request)
 	form = LoginForm()
-	return render(request,"forum/login.html",{'form':form})
+	return redirect('login')
+	# return render(request,"forum/login.html",{'form':form})

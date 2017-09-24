@@ -1,8 +1,35 @@
+{% extends 'forum/base.html' %}
+
+
 <h1>Welcome to AMA</h1>
 
-{% for answer in answers %}
-<b>{{ answer.question|linebreaksbr }}</b>
-<br>
-{{ answer.text|linebreaksbr }}
-<hr>
-{% endfor %}
+{% block content %}
+
+<div class="spacer">
+	&nbsp
+</div>
+<center>
+	<div class="container">
+	{% for answer in answers %}
+		  
+		<div class="box" >
+		  <div class="media">
+		    <div class="media-left media-top">
+		     
+		    </div>
+		    <div class="media-body">
+				<div class="textalignleft">      
+			      <h4 class="media-heading">{{ answer.question|linebreaksbr }}</h4>
+			      <br>
+			      <p><b>{{answer.author}}</b></p>
+			      <p>{{answer.text|linebreaksbr}}</p>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+	{% endfor %}
+	</div>
+</center>
+
+
+{% endblock %}
