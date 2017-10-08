@@ -1,0 +1,17 @@
+<div class="box" >
+		  <div class="media">
+		    <div class="media-left media-top">
+		     
+		    </div>
+		    <div class="media-body">
+				<div class="textalignleft"> 
+			      <p><b>{{answer.author}}</b></p>
+			      <hr>
+			      <p>{{answer.text|linebreaksbr}}</p>
+			      <hr>
+			      {% include 'forum/upvotes_comments_summary.html' %}
+			      {% include 'forum/upvotes_comments_button.html' %}
+			    </div>
+		    </div>
+		  </div>
+		</div>

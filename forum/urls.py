@@ -7,6 +7,7 @@ urlpatterns =[
 	url(r'^profile/(?P<pkey>\d+)/$',views.other_profile,name="other_profile"),
 	url(r'^question/(?P<pkey>\d+)/$',views.question,name='question'),
 	url(r'^answer/(?P<pkey>\d+)/$',views.answer,name='answer'),
+	url(r'^comment/(?P<pkey>\d+)/$',views.comment,name='comment'),
 	url(r'^signup/$',views.signup,name='signup'),
 	url(r'^login/$',views.login,name='login'),
 	url(r'^logout/$',views.logout,name='logout'),

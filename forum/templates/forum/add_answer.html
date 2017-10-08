@@ -14,8 +14,7 @@
 <center>
 	
 	<div class="container">
-		<h2>{{ question.text }}</h2>
-	<h3>Followers: {{question.get_num_followers}}  Upvotes: {{question.get_num_upvotes}}</h3>
+		{% include 'forum/question_show.html' %}
 		<div  >
 		  <div class="media">
 		    <div class="media-left media-top">

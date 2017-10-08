@@ -11,12 +11,13 @@
 <center>
 	
 	<div class="container">
-		<h2>{{ question.text }}</h2>
-	<h3>Followers: {{question.get_num_followers}}  Upvotes: {{question.get_num_upvotes}}</h3>
+		{% include 'forum/question_show.html' %}
+		<hr>
+	{% include 'forum/answer_show.html' %}
 
-	<p>{{ answer.text }}</p>
-	<a href="{% url 'upvote_answer' pkey=answer.pk %}" ><button type="button">upvote</button></a>
-		<div  >
+	<!-- <p>{{ answer.text }}</p>
+	<a href="{% url 'upvote_answer' pkey=answer.pk %}" ><button type="button">upvote</button></a> -->
+		<div  class="box" >
 		  <div class="media">
 		    <div class="media-left media-top">
 		     

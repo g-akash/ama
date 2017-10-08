@@ -8,7 +8,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import logout as Logout
 from django.contrib.auth import login as Login
-from .models import Question, Answer, Profile
+from .models import Question, Answer, Profile, Comment
 from .models import Q_upvote, A_upvote, C_upvote
 from .models import Q_follow, P_follow, Ppic, Related_topic
 from .models import Topic
@@ -149,6 +149,15 @@ def answer(request,pkey):
 	answer = get_object_or_404(Answer,pk=pkey)
 	question = answer.question
 	return render(request,'forum/answer.html',{'question':question,'answer':answer})
+
+
+@login_required(login_url='/login/')
+def comment(request,pkey):
+	answer = get_object_or_404(Answer,pk=pkey)
+	question = answer.question
+	comments = Comment.objects.filter(answer=answer).order_by('created_date')
+	return render(request,'forum/comment.html',{'question':question,'answer':answer,'comments':comments})
+
 
 
 ####################
@@ -343,8 +352,9 @@ def add_answer(request,pkey):
 
 	else:
 		form = AnswerForm()
+		question = get_object_or_404(Question,pk=pkey)
 
-	return render(request,'forum/add_answer.html',{'form':form})
+	return render(request,'forum/add_answer.html',{'form':form,'question':question})
 
 
 
@@ -360,7 +370,8 @@ def edit_answer(request,pkey):
 				return redirect('answer',pkey=answer.pk)
 	else:
 		form = AnswerForm(instance=answer)
-	return render(request,'forum/add_answer.html',{'form':form})
+		question = answer.question
+	return render(request,'forum/add_answer.html',{'form':form,'question':question})
 
 
 
@@ -378,8 +389,10 @@ def add_comment(request,pkey):
 			return redirect('answer',pkey=answer.pk)
 	else:
 		form = CommentForm()
+		answer = get_object_or_404(Answer,pk=pkey)
+		question = answer.question
 
-	return render(request,'forum/add_comment.html',{'form':form})
+	return render(request,'forum/add_comment.html',{'form':form,'question':question,'answer':answer})
 
 @login_required(login_url='/login/')
 def edit_comment(request,pkey):
@@ -393,7 +406,10 @@ def edit_comment(request,pkey):
 				return redirect('answer',pkey=comment.answer.pk)
 	else:
 		form = CommentForm(instance=comment)
-	return render(request,'forum/add_comment.html',{'form':form})
+		answer = get_object_or_404(Answer,pk=pkey)
+		question = answer.question
+
+	return render(request,'forum/add_comment.html',{'form':form,'question':question,'answer':answer})
 
 
 
