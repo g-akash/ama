@@ -21,10 +21,19 @@
 		    </div>
 		    <div class="media-body">
 				<div class="textalignleft">      
-			      <h4 class="media-heading">{{ answer.question|linebreaksbr }}</h4>
+			      <h4 class="media-heading">
+			      <a href="{% url 'question' pkey=answer.question.pk %}"/>	{{ answer.question|linebreaksbr }} </a>
+			      </h4>
+			      <a href="{% url 'follow_question' pkey=answer.question.pk %}" ><button type="button">follow</button></a>
+			      <br>
 			      <br>
 			      <p><b>{{answer.author}}</b></p>
+			      <hr>
 			      <p>{{answer.text|linebreaksbr}}</p>
+			      <hr>
+			      <p>upvotes:{{answer.num_upvotes}}</p>
+			      <a href="{% url 'upvote_answer' pkey=answer.pk %}" ><button type="button">upvote</button></a>
+			      <a href="{% url 'add_comment' pkey=answer.pk %}" ><button type="button">comment</button></a>
 			    </div>
 		    </div>
 		  </div>

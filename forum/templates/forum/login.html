@@ -1,5 +1,31 @@
-<h1>Existing User</h1>
-<form method="POST" class="post-form">{% csrf_token %}
+{% load staticfiles %}
+<html>
+	<head>
+		<title>AMA</title>
+		<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/forum.css' %}">
+  <link href="{% static "css/formstyle.css" %}" type="text/css" rel="stylesheet">
+  <link href="{% static "css/formstyle_big_input.css" %}" type="text/css" rel="stylesheet">
+  <link href="{% static "css/formstyle_question.css" %}" type="text/css" rel="stylesheet">
+  <link href="{% static "css/formstyle_comment.css" %}" type="text/css" rel="stylesheet">
+  
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+<body>
+<form method="POST" class="smart-green">{% csrf_token %}
+	<h1>Login
+	<span>Please fill all the fields below</span></h1>
 	{{ form.as_p }}
 	<button type="submit" class="logBut">Login</button>
 </form>
+</body>
+
+
+
+
+

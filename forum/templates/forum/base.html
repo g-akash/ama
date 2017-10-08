@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="{% static 'css/forum.css' %}">
+  <link href="{% static "css/formstyle.css" %}" type="text/css" rel="stylesheet">
+  <link href="{% static "css/formstyle_big_input.css" %}" type="text/css" rel="stylesheet">
+  <link href="{% static "css/formstyle_question.css" %}" type="text/css" rel="stylesheet">
+  <link href="{% static "css/formstyle_comment.css" %}" type="text/css" rel="stylesheet">
+  
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
@@ -14,13 +21,13 @@
     		<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'home' %}">WebSiteName</a>
+      <a class="navbar-brand" href="{% url 'home' %}">AMA</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="{% url 'home' %}">Home</a></li>
       <li><a href="{% url 'add_question' %}">Ask Question</a></li>
       <li><a href="{% url 'add_question' %}">Answer</a></li>
-      <li><a href="#">Page 3</a></li>
+      <!-- <li><a href="#">Page 3</a></li> -->
        <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
         <span class="caret"></span></a>

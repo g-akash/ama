@@ -12,8 +12,9 @@
 <center>
 	
 	<div class="container">
-		<h2>{{ question.text }}</h2>
-	<h3>Followers: {{question.get_num_followers}}  Upvotes: {{question.get_num_upvotes}}</h3>
+		<a href="{% url 'question' pkey=question.pk %}"><h2>{{ question.text }}</h2></a>
+	<h3>Followers: {{question.get_num_followers}}  </h3>
+	<a href="{% url 'follow_question' pkey=question.pk %}" ><button type="button">follow</button></a>
 		<div class="box" >
 		  <div class="media">
 		    <div class="media-left media-top">
@@ -22,7 +23,12 @@
 		    <div class="media-body">
 				<div class="textalignleft"> 
 			      <p><b>{{answer.author}}</b></p>
+			      <hr>
 			      <p>{{answer.text|linebreaksbr}}</p>
+			      <hr>
+			      <p>upvotes:{{answer.num_upvotes}}</p>
+			      <a href="{% url 'upvote_answer' pkey=answer.pk %}" ><button type="button">upvote</button></a>
+			      <a href="{% url 'add_comment' pkey=answer.pk %}" ><button type="button">comment</button></a>
 			    </div>
 		    </div>
 		  </div>

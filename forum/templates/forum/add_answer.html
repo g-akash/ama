@@ -1,7 +1,53 @@
-<h1> Answer </h1>
+{% extends 'forum/base.html' %}
 
-<form method="POST" class="post-form">{% csrf_token %}
+{% block content %}
+
+<div class="spacer">
+	&nbsp
+</div>
+<!-- <h1> Answer </h1> -->
+
+
+
+
+
+<center>
+	
+	<div class="container">
+		<h2>{{ question.text }}</h2>
+	<h3>Followers: {{question.get_num_followers}}  Upvotes: {{question.get_num_upvotes}}</h3>
+		<div  >
+		  <div class="media">
+		    <div class="media-left media-top">
+		     
+		    </div>
+		    <div class="media-body">
+				<div class="textalignleft"> 
+			      <form method="POST" class="smart-green1">{% csrf_token %}
+					{{ form.as_p }}
+					<button type="submit" class="	savr btn btn-default">Add</button>
+					</form>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</center>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form method="POST" class="smart-green">{% csrf_token %}
 	{{ form.as_p }}
 	<button type="submit" class="savr btn btn-default">Add</button>
-</form>
+</form> -->
 
+
+{% endblock %}

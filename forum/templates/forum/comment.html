@@ -11,26 +11,35 @@
 <center>
 	
 	<div class="container">
-		<h2>{{ question.text }}</h2>
+		<a href="{% url 'question' pkey=question.pk %}"><h2>{{ question.text }}</h2></a>
 	<h3>Followers: {{question.get_num_followers}}  Upvotes: {{question.get_num_upvotes}}</h3>
 
 	<p>{{ answer.text }}</p>
+	<p>upvotes:{{answer.num_upvotes}}</p>
 	<a href="{% url 'upvote_answer' pkey=answer.pk %}" ><button type="button">upvote</button></a>
-		<div  >
+	<a href="{% url 'add_comment' pkey=answer.pk %}" ><button type="button">comment</button></a>
+		<div class="box" >
+		  
+
 		  <div class="media">
 		    <div class="media-left media-top">
 		     
 		    </div>
 		    <div class="media-body">
 				<div class="textalignleft"> 
-			      <form method="POST" class="smart-green3">{% csrf_token %}
-					{{ form.as_p }}
-					<button type="submit" class="	savr btn btn-default">Add</button>
-					</form>
+			      {% for comment in comments %}
+			      <b>{{comment.author}}</b><br>
+			      {{comment.text|linebreaksbr}}
+			      <br>
+			      <hr>
+			      {% endfor %}
+			      <hr>
 			    </div>
 		    </div>
 		  </div>
 		</div>
+
+
 	</div>
 </center>
 
@@ -58,9 +67,6 @@
 
 
 
-<!-- <h1> Comment </h1>
-<form method="POST" class="post-form">{% csrf_token %} {{ form.as_p }}
-	<button type="submit" class="savr btn btn-default">Add</button>
-</form> -->
+
 
 {% endblock %}

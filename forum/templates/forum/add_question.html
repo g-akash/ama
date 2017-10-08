@@ -1,4 +1,66 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+
+<div class="spacer">
+	&nbsp
+</div>
+
 <h1> Question</h1>
-<form method="POST" class="post-form">{% csrf_token %} {{ form.as_p }}
+
+
+
+
+
+<center>
+	
+	<div class="container">
+		<div  >
+		  <div class="media">
+		    <div class="media-left media-top">
+		     
+		    </div>
+		    <div class="media-body">
+				<div class="textalignleft"> 
+			      <form method="POST" class="smart-green2">{% csrf_token %}
+					{{ form.as_p }}
+					<button type="submit" class="	savr btn btn-default">Add</button>
+					</form>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form method="POST" class="post-form">{% csrf_token %} {{ form.as_p }}
 	<button type="submit" class="savr btn btn-default">Add</button>
 	</form>
+ -->
+
+{% endblock %}

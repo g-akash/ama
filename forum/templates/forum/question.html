@@ -11,6 +11,10 @@
 	<div class="container">
 		<div>
 		<h2>{{ question.text }}</h2>
+		<p>followers:{{question.num_followers}}</p>
+		<a href="{% url 'follow_question' pkey=question.pk %}" >
+			
+			<button type="button">follow</button></a>
 	</div>
 	{% for answer in answers %}
 		  
@@ -22,7 +26,12 @@
 		    <div class="media-body">
 				<div class="textalignleft"> 
 			      <p><b>{{answer.author}}</b></p>
+			      <hr>
 			      <p>{{answer.text|linebreaksbr}}</p>
+			      <hr>
+			      <p>upvotes:{{answer.num_upvotes}}</p>
+			      <a href="{% url 'upvote_answer' pkey=answer.pk %}" ><button type="button">upvote</button></a>
+			      <a href="{% url 'add_comment' pkey=answer.pk %}" ><button type="button">comment</button></a>
 			    </div>
 		    </div>
 		  </div>

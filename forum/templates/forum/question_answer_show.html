@@ -1,0 +1,24 @@
+<div class="box" >
+		  <div class="media">
+		    <div class="media-left media-top">
+		     
+		    </div>
+		    <div class="media-body">
+				<div class="textalignleft">      
+			      <h4 class="media-heading">
+			      	<a href="{% url 'question' pkey=answer.question.pk %}">
+			      	{{ answer.question|linebreaksbr }}</a>
+			      </h4>
+			     
+			      <a href="{% url 'follow_question' pkey=answer.question.pk %}" ><button type="button">follow</button></a>
+			      <br>
+			      <br>
+			      <p><b>{{answer.author}}</b></p>
+			      <hr>
+			      <p>{{answer.text|linebreaksbr}}</p><hr>
+			      {% include 'forum/upvotes_comments_summary.html' %}
+			      {% include 'forum/upvotes_comments_button.html' %}
+			    </div>
+		    </div>
+		  </div>
+		</div>
